@@ -2,7 +2,7 @@
 
 ##一、router逻辑实现图
 
-![找不到库文件](https://github.com/TF27674569/RxPhoto/blob/master/app/image/%E5%BC%82%E5%B8%B8.png)
+![找不到库文件](https://github.com/TF27674569/RouterProject/blob/master/router.bmp)
 
 
 
