@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'com.novoda:bintray-release:0.5.0'// 版本相关
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+//添加
+ext {
+    userOrg = 'tf27674569'
+    groupId = 'com.tianfeng'
+    uploadName = 'Router'
+    publishVersion = '1.0.0'
+    desc = '多模块路由框架 '
+    website = 'https://github.com/TF27674569/routerproject'
+    licences = ['Apache-2.0']
+}
+
+tasks.withType(Javadoc) {//防止编码问题 可以自行修改编码
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
