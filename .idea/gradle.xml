@@ -9,6 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/lib-base" />
+            <option value="$PROJECT_DIR$/lib-mine" />
+            <option value="$PROJECT_DIR$/lin-home" />
             <option value="$PROJECT_DIR$/router-annoation" />
             <option value="$PROJECT_DIR$/router-api" />
             <option value="$PROJECT_DIR$/router-compiler" />

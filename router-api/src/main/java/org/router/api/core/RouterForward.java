@@ -5,6 +5,9 @@ import android.content.Context;
 import org.router.ThreadMode;
 import org.router.api.extra.ActionWrapper;
 import org.router.api.interceptor.ActionInterceptor;
+import org.router.api.interceptor.ActionInterceptorChain;
+import org.router.api.result.ActionCallback;
+import org.router.api.thread.ActionPost;
 
 import java.util.HashMap;
 import java.util.List;
@@ -49,7 +52,7 @@ public class RouterForward {
      * @return
      */
     public void invokeAction() {
-        //invokeAction(ActionCallback.DEFAULT_ACTION_CALLBACK);
+        invokeAction(ActionCallback.DEFAULT_ACTION_CALLBACK);
     }
 
     /**
@@ -57,14 +60,14 @@ public class RouterForward {
      *
      * @return
      */
-//    public void invokeAction(ActionCallback actionCallback) {
-//        // 先封装 actionPost
-//        mActionWrapper.setThreadMode(getThreadMode());
-//        ActionPost actionPost = ActionPost.obtainActionPost(mActionWrapper, mContext, mParams, actionCallback);
-//        // 开始拦截器的流程
-//        ActionInterceptor.ActionChain chain = new ActionInterceptorChain(interceptors, actionPost, 0);
-//        chain.proceed(actionPost);
-//    }
+    public void invokeAction(ActionCallback actionCallback) {
+        // 先封装 actionPost
+        mActionWrapper.setThreadMode(getThreadMode());
+        ActionPost actionPost = ActionPost.obtainActionPost(mActionWrapper, mContext, mParams, actionCallback);
+        // 开始拦截器的流程
+        ActionInterceptor.ActionChain chain = new ActionInterceptorChain(interceptors, actionPost, 0);
+        chain.proceed(actionPost);
+    }
 
     /**
      * 路由转发方法传递的 threadMode 优先级高于 Action 注解上的 threadMode
