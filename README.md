@@ -1,12 +1,13 @@
 # Router
 
-##一、router逻辑实现图
+#一、router逻辑实现图
 
-![找不到库文件](https://github.com/TF27674569/RouterProject/blob/master/router.bmp)
+![  ](https://github.com/TF27674569/RouterProject/blob/master/router.bmp)
 
 
 
-##一、编译器处理生成的类
+
+#二、编译器处理生成的类
 
 ####1. 需要在编译期扫描所有的的注解（Action,Interceptor）
 ####2. Action为modle对象给外界提供的访问接口定义为
