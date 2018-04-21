@@ -1,16 +1,17 @@
 # Router
 
-#一、router逻辑实现图
+一、router逻辑实现图
 
-![  ](https://github.com/TF27674569/RouterProject/blob/master/router.bmp)
-
-
+![  ](https://github.com/TF27674569/RouterProject/blob/master/router.bmp)  
 
 
-#二、编译器处理生成的类
 
-####1. 需要在编译期扫描所有的的注解（Action,Interceptor）
-####2. Action为modle对象给外界提供的访问接口定义为
+
+
+二、编译器处理生成的类
+
+1. 需要在编译期扫描所有的的注解（Action,Interceptor）
+2. Action为modle对象给外界提供的访问接口定义为
 ```java
 @Action(path = "login/action", threadMode = ThreadMode.MAIN)
 public class LoginAction implements IRouterAction {
@@ -25,7 +26,7 @@ public class LoginAction implements IRouterAction {
 &nbsp;　　2.1 path为id 访问的唯一标识   
 &nbsp;　　2.2 threadMode为回来的线程
 
-####3. Interceptor 拦截器执行时会回调到拦截器的函数
+3. Interceptor 拦截器执行时会回调到拦截器的函数
 ```java
 @Interceptor(priority = 6)
 public class CircleInterceptor1 implements ActionInterceptor {
