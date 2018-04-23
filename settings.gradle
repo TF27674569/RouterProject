@@ -1,1 +1,1 @@
-include ':app', ':router-annoation', ':router-compiler', ':router-api', ':lin-home', ':lib-mine', ':lib-base'
+include ':app', ':router-annoation', ':router-compiler', ':router-api', ':lib-home', ':lib-mine', ':lib-base'

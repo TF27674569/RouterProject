@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 
 import org.router.api.core.Router;
-import org.router.compiler.Consts;
+import org.router.api.extra.Consts;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 import dalvik.system.DexFile;
 
 /**
- * Description :  thanks alibaba ARouter
+ * Description :  alibaba ARouter 源码
  * <p/>
  * Created : TIAN FENG
  * Date : 2018/4/21

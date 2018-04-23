@@ -10,6 +10,7 @@ import org.router.api.action.IRouterAction;
 import org.router.api.action.IRouterModule;
 import org.router.api.exception.RouterInitException;
 import org.router.api.extra.ActionWrapper;
+import org.router.api.extra.Consts;
 import org.router.api.extra.DefaultLogger;
 import org.router.api.extra.ErrorActionWrapper;
 import org.router.api.extra.ILogger;
@@ -19,8 +20,6 @@ import org.router.api.interceptor.ErrorActionInterceptor;
 import org.router.api.interceptor.IRouterInterceptor;
 import org.router.api.thread.PosterSupport;
 import org.router.api.utils.ClassUtils;
-import org.router.compiler.Consts;
-import org.router.compiler.Consts.*;
 
 import java.io.IOException;
 import java.util.ArrayList;

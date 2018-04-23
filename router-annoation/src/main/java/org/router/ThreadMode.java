@@ -4,7 +4,7 @@ package org.router;
 
 /**
  * Description : thanks  EventBus and DRouter
- *               çº¿ç¨‹è°ƒåº¦æ¨¡å‹
+ *               Ïß³Ìµ÷¶ÈÄ£ĞÍ
  * <p/>
  * Created : TIAN FENG
  * Date : 2018/4/21
@@ -14,22 +14,22 @@ package org.router;
 public enum ThreadMode {
 
     /**
-     * åœ¨å“ªæ‰§è¡Œå›æ¥å°±åœ¨å“ªä¸ªçº¿ç¨‹
+     * ÔÚÄÄÖ´ĞĞ»ØÀ´¾ÍÔÚÄÄ¸öÏß³Ì
      */
     POSTING,
 
     /**
-     * å›åˆ°ä¸»çº¿ç¨‹
+     * »Øµ½Ö÷Ïß³Ì
      */
     MAIN,
 
     /**
-     * åå°ä¸å¯è§çº¿ç¨‹
+     * ºóÌ¨²»¿É¼ûÏß³Ì
      */
     BACKGROUND,
 
     /**
-     * å¼‚æ­¥çº¿ç¨‹
+     * Òì²½Ïß³Ì
      */
     ASYNC
 }

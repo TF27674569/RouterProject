@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Description : Action æ³¨è§£
+ * Description : Action ×¢½â
  * <p/>
  * Created : TIAN FENG
  * Date : 2018/4/21
@@ -19,17 +19,18 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 public @interface Action {
     /**
-     * çº¿ç¨‹æ¨¡å‹
+     * Ïß³ÌÄ£ĞÍ
      */
     ThreadMode threadMode() default ThreadMode.POSTING;
 
     /**
-     * è·¯ç”±çš„è·¯å¾„ ä¹Ÿå°±æ˜¯å”¯ä¸€æ ‡è¯†Id
+     * Â·ÓÉµÄÂ·¾¶ Ò²
+     * ¾ÍÊÇÎ¨Ò»±êÊ¶Id
      */
     String path();
 
     /**
-     * æ˜¯å¦åœ¨ä¸€ä¸ªæ–°çš„è¿›ç¨‹
+     * ÊÇ·ñÔÚÒ»¸öĞÂµÄ½ø³Ì
      */
     boolean extraProcess() default false;
 }

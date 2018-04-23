@@ -5,7 +5,7 @@ import org.router.api.thread.ActionPost;
 import java.util.List;
 
 /**
- * Description :
+ * Description : 仿okhttp责任连实现
  * <p/>
  * Created : TIAN FENG
  * Date : 2018/4/21

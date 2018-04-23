@@ -20,6 +20,7 @@ import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -39,7 +40,7 @@ import static org.router.compiler.Consts.*;
  * Email : 27674569@qq.com
  * Version : 1.0
  */
-@AutoService(Process.class)
+@AutoService(Processor.class)
 public class ModuleProcessor extends AbstractProcessor{
     /**
      * MODULE 名称对应的KEY
@@ -122,23 +123,25 @@ public class ModuleProcessor extends AbstractProcessor{
             moduleName = options.get(KEY_MODULE_NAME);
         }
 
+        System.out.println("moduleName = " + moduleName);
+
         // 判断module名称是不是为空
         if (TextUtils.isEmpty(moduleName)){
             String errorMessage = "These no module name, at 'build.gradle', like :\n" +
                     "apt {\n" +
                     "    arguments {\n" +
-                    "        moduleName project.getName();\n" +
+                    "        moduleName = project.getName();\n" +
                     "    }\n" +
                     "}\n";
             throw new RuntimeException("Router::Compiler >>> No module name, for more information, look at gradle log.\n" + errorMessage);
         }else {
-            // 不为空 吧module中间的 "-"  去掉
+            // 不为空 格式化 module名
             moduleName = moduleName.replaceAll("[^0-9a-zA-Z_]+", "");
         }
 
 
         // 生成类继承和实现接口 父类类名
-        ClassName routerAssistClassName = ClassName.get("org.drouter.api.action", "IRouterModule");
+        ClassName routerAssistClassName = ClassName.get("org.router.api.action", "IRouterModule");
         // map包
         ClassName mapClassName = ClassName.get("java.util", "Map");
 
@@ -151,7 +154,7 @@ public class ModuleProcessor extends AbstractProcessor{
         // 构造函数
         MethodSpec.Builder constructorMethodBuilder = MethodSpec.constructorBuilder().addModifiers(Modifier.PUBLIC);
         // 创建构造函数并初始化TreeMap 且自动导包
-        constructorMethodBuilder.addStatement("interceptors = new $T<>()", ClassName.get("java.util", "HashMap"));
+        constructorMethodBuilder.addStatement("actions = new $T<>()", ClassName.get("java.util", "HashMap"));
 
 
 
@@ -160,8 +163,8 @@ public class ModuleProcessor extends AbstractProcessor{
         // 有多少个 Intercepter 注解就创建多大的map 也就是说这个module中有多少个拦截器
         Map<String, String> modules = new HashMap<>(elements.size());
 
-        ClassName actionWrapperClassName = ClassName.get("org.drouter.api.extra", "ActionWrapper");
-        ClassName threadModeClassName = ClassName.get("org.drouter.annotation", "ThreadMode");
+        ClassName actionWrapperClassName = ClassName.get("org.router.api.extra", "ActionWrapper");
+        ClassName threadModeClassName = ClassName.get("org.router", "ThreadMode");
 
         // 开始遍历
         for (Element element : elements) {

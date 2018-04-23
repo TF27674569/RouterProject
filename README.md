@@ -4,10 +4,33 @@
 
 ![  ](https://github.com/TF27674569/RouterProject/blob/master/router.bmp)  
 
+二、配置  
+  
+  
+&nbsp;　　1.lib-base层添加依赖
+   ```java
+    compile project(':router-api')
+```
+&nbsp;　　   &nbsp;　　   注意使用 compile 不要使用  implementation     
+&nbsp;　　 2.在需要使用注解的module中添加依赖
+```java
+     annotationProcessor project(':router-compiler')
+```
+&nbsp;　　   &nbsp;　　 并在 build.gradle  中添加
+```java
+   defaultConfig {
+           .....
+           aCompileOptions {
+               annotationProcessorOptions {
+                   arguments = [moduleName: project.getName()]
+               }
+           }
+       }
 
-
-
-二、编译器处理生成的类
+```
+&nbsp;　　   &nbsp;　　moduleName 是在编译期间获取每个module的名字
+  
+三、注解类使用格式
 
 1. 需要在编译期扫描所有的的注解（Action,Interceptor）
 2. Action为modle对象给外界提供的访问接口定义为
@@ -34,7 +57,7 @@ public class CircleInterceptor1 implements ActionInterceptor {
     public void intercept(ActionChain chain) {
         ActionPost actionPost = chain.action();
 
-        if (chain.actionPath().equals("circlemodule/test")) {
+        if (chain.actionPath().equals("libhome/homeActivity")) {
 
             // 拦截
             chain.onInterrupt();
@@ -49,8 +72,25 @@ public class CircleInterceptor1 implements ActionInterceptor {
 &nbsp;　　3.2 所有的拦截器都会走
 
 
+四、使用
+```java
 
+        Router.get()
+                .action("libhome/homeActivity")
+                .context(this)
+                .invokeAction(new ActionCallback() {
+                    @Override
+                    public void onInterrupt() {
+                        Toast.makeText(MineActivity.this, "拦截了", Toast.LENGTH_SHORT).show();
+                    }
 
+                    @Override
+                    public void onResult(RouterResult result) {
+                        Log.e("TAG", "onResult: "+result.toString());
+                    }
+                });
+```
+&nbsp;　　 ActionCallback 可以不传
 
 
 

@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Description : æ‹¦æˆªå™¨æ ‡è¯†ç¬¦
+ * Description : À¹½ØÆ÷±êÊ¶·û
  * <p/>
  * Created : TIAN FENG
  * Date : 2018/4/21
@@ -19,7 +19,7 @@ import java.lang.annotation.Target;
 public @interface Intercepter{
 
     /**
-     * ä¼˜å…ˆçº§ é»˜è®¤0  è¶Šé«˜è¶Šå…ˆæ‰§è¡Œ
+     * ÓÅÏÈ¼¶ Ä¬ÈÏ0  Ô½¸ßÔ½ÏÈÖ´ÐÐ
      */
-    int priority() default 0;
+    int priority();
 }

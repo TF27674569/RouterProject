@@ -3,8 +3,8 @@ package org.router.api.thread;
 import org.router.api.action.IRouterAction;
 import org.router.api.core.Router;
 import org.router.api.extra.ActionWrapper;
+import org.router.api.extra.Consts;
 import org.router.api.result.RouterResult;
-import org.router.compiler.Consts;
 
 /**
  * Description :

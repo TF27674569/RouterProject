@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/router-annoation/src/main/java/org/router/ThreadMode.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/router-annoation/src/main/java/org/router/annoation/Action.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/router-annoation/src/main/java/org/router/annoation/Intercepter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/router-annoation/src/main/java/org/router/ThreadMode.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/router-annoation/src/main/java/org/router/annoation/Action.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/router-annoation/src/main/java/org/router/annoation/Intercepter.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/router-compiler/src/main/java/org/router/compiler/InterceptorProcessor.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/router-compiler/src/main/java/org/router/compiler/ModuleProcessor.java" charset="UTF-8" />
   </component>

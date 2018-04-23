@@ -1,14 +1,17 @@
 package org.router.compiler;
 
 import com.google.auto.service.AutoService;
+import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
+
 import org.router.annoation.Intercepter;
 import org.router.compiler.util.TextUtils;
 
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -27,6 +30,7 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
+
 
 import static org.router.compiler.Consts.ACTIONINTERCEPTOR;
 
@@ -132,7 +136,7 @@ public class InterceptorProcessor extends AbstractProcessor{
                     "}\n";
             throw new RuntimeException("Router::Compiler >>> No module name, for more information, look at gradle log.\n" + errorMessage);
         }else {
-            // 不为空 吧module中间的 "-"  去掉
+            // 不为空 格式化 module名
             moduleName = moduleName.replaceAll("[^0-9a-zA-Z_]+", "");
         }
 
@@ -204,7 +208,7 @@ public class InterceptorProcessor extends AbstractProcessor{
                 .addModifiers(Modifier.PUBLIC, Modifier.FINAL);// final的公共函数
 
         // 通过工具函数调用
-        unbindMethodBuilder.addStatement("return $T.getInterceptorClasses(interceptors)", ClassName.get("org.drouter.api.utils", "MapUtils"));
+        unbindMethodBuilder.addStatement("return $T.getInterceptorClasses(interceptors)", ClassName.get("org.router.api.utils", "MapUtils"));
 
         // 将两个函数添加在类中去
         classBuilder.addMethod(constructorMethodBuilder.build());

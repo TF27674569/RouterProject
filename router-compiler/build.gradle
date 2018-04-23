@@ -2,10 +2,9 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':router-annoation')
     implementation 'com.google.auto.service:auto-service:1.0-rc2'
     implementation 'com.squareup:javapoet:1.7.0'
-    implementation project(':router-annoation')
-
 }
 
 tasks.withType(JavaCompile){
@@ -16,21 +15,3 @@ sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
 
 
-/** 以下开始是将Android Library上传到jcenter的相关配置**/
-apply plugin: 'com.novoda.bintray-release'//添加
-//项目主页
-def siteUrl = 'https://github.com/TF27674569/router'// 我的项目
-publish{
-    repoName = 'maven'//远程仓库名字,不指明，默认是上传到maven
-    userOrg = 'tf27674569'//bintray.com的用户名
-    groupId = 'com.tianfeng'//jcenter上的路径
-    artifactId = 'router-compiler'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = '多模块通信路由'//描述，不重要
-    website = siteUrl//项目主页
-}
-tasks.withType(Javadoc) {//防止编码问题 可以自行修改编码
-    options.addStringOption('Xdoclint:none', '-quiet')
-    options.addStringOption('encoding', 'GBK')
-    options.addStringOption('charSet', 'GBK')
-}
