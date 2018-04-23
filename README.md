@@ -1,10 +1,10 @@
 # Router
 
-一、router逻辑实现图
+### **一、router逻辑实现图
 
 ![  ](https://github.com/TF27674569/RouterProject/blob/master/router.bmp)  
 
-二、配置  
+### **二、配置  
   
     目前没有上传jcenter仓库，使用时需要，先下载项目将三个router-module导入项目
   
@@ -31,7 +31,7 @@
 ```
 &nbsp;　　   &nbsp;　　moduleName 是在编译期间获取每个module的名字
   
-三、注解类使用格式
+### **三、注解类使用格式
 
 1. 需要在编译期扫描所有的的注解（Action,Interceptor）
 2. Action为modle对象给外界提供的访问接口定义为
@@ -73,7 +73,7 @@ public class CircleInterceptor1 implements ActionInterceptor {
 &nbsp;　　3.2 所有的拦截器都会走
 
 
-四、使用
+### **四、使用
 ```java
 
         Router.get()
@@ -94,7 +94,7 @@ public class CircleInterceptor1 implements ActionInterceptor {
 &nbsp;　　 ActionCallback 可以不传
 
 
-五、最后本demo逻辑图关系
+### **五、最后本demo逻辑图关系
 
 ![  ](https://github.com/TF27674569/RouterProject/blob/master/project.bmp)  
 
