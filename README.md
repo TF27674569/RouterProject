@@ -36,13 +36,21 @@
 1. 需要在编译期扫描所有的的注解（Action,Interceptor）
 2. Action为modle对象给外界提供的访问接口定义为
 ```java
-@Action(path = "login/action", threadMode = ThreadMode.MAIN)
-public class LoginAction implements IRouterAction {
+@Action(path = "libhome/homeActivity")
+public class HomeAction implements IRouterAction{
+    /**
+     * 回调函数 跳转是对外提供的接口
+     *
+     * @param context     上下文
+     * @param requestData 请求参数
+     * @return 路由返回结果
+     */
     @Override
     public RouterResult invokeAction(Context context, Map<String, Object> requestData) {
-        Intent intent = new Intent(context, LoginActivity.class);
+        Intent intent = new Intent(context,HomeActivity.class);
+        intent.putExtra("key","value");
         context.startActivity(intent);
-        return new RouterResult.Builder().success().object(100).build();
+        return new RouterResult.Builder().success().build();
     }
 }
 ```
@@ -51,19 +59,25 @@ public class LoginAction implements IRouterAction {
 
 3. Interceptor 拦截器执行时会回调到拦截器的函数
 ```java
-@Interceptor(priority = 6)
-public class CircleInterceptor1 implements ActionInterceptor {
+@Intercepter(priority = 18)
+public class HomeIntercept implements ActionInterceptor{
+
 
     @Override
     public void intercept(ActionChain chain) {
         ActionPost actionPost = chain.action();
 
+        // 判断path 如果需要拦截  则处理拦截事件
         if (chain.actionPath().equals("libhome/homeActivity")) {
-
+            Toast.makeText(actionPost.context, "拦截首页，跳转到登录", Toast.LENGTH_LONG).show();
             // 拦截
             chain.onInterrupt();
+            // 跳转到登录页面
+            Router.get()
+                    .action("login/action")
+                    .context(actionPost.context)
+                    .invokeAction();
         }
-
         // 继续向下转发
         chain.proceed(actionPost);
     }
