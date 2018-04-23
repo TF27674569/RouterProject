@@ -88,11 +88,18 @@ public class HomeIntercept implements ActionInterceptor{
 
 
 ### **四、使用**
+**1.** 初始化 时序早，建议放在application
 ```java
-
+   // 初始化
+  Router.get().init(this);
+  // 开启调试模式 
+  Router.openDebug();
+```
+**2.** 函数调用
+```java
         Router.get()
-                .action("libhome/homeActivity")
-                .context(this)
+                .action("libhome/homeActivity")// 路径 唯一
+                .context(this)// 访问需要上下文时传入
                 .invokeAction(new ActionCallback() {
                     @Override
                     public void onInterrupt() {
@@ -104,9 +111,8 @@ public class HomeIntercept implements ActionInterceptor{
                         Log.e("TAG", "onResult: "+result.toString());
                     }
                 });
+        // ActionCallback 可以不传
 ```
-&nbsp;　　 ActionCallback 可以不传
-
 
 ### **五、最后本demo逻辑图关系**
 
