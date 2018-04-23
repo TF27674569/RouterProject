@@ -6,6 +6,7 @@
 
 二、配置  
   
+    目前没有上传jcenter仓库，使用时需要，先下载项目将三个router-module导入项目
   
 &nbsp;　　1.lib-base层添加依赖
    ```java
