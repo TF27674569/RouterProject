@@ -90,7 +90,7 @@ public class Router implements IRouter{
 
         this.mApplicationContext = context;
 
-        // 获取 org.drouter.assist.module 包名下的所有类名信息
+        // 获取 org.router.assist.module 包名下的所有类名信息
         try {
             mAllModuleClassName = ClassUtils.getFileNameByPackageName(context, Consts.ROUTER_MODULE_PACK_NAME);
         } catch (PackageManager.NameNotFoundException e) {
