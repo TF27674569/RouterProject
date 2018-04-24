@@ -59,7 +59,6 @@ public class Router implements IRouter{
     public static synchronized void openDebug() {
         debuggable = true;
         logger.showLog(true);
-
         logger.d(Consts.TAG, "DRouter openDebug");
     }
 
