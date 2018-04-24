@@ -99,8 +99,10 @@ public class Router implements IRouter{
             e.printStackTrace();
         }
 
-        for (String className : mAllModuleClassName) {
-            logger.d(Consts.TAG, "扫描到: " + className);
+        if (debuggable){
+            for (String className : mAllModuleClassName) {
+                logger.d(Consts.TAG, "扫描到: " + className);
+            }
         }
         // 添加并且实例化所有拦截器
         scanAddInterceptors(context);
