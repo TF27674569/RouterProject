@@ -219,7 +219,7 @@ public class InterceptorProcessor extends AbstractProcessor{
         try {
             // 包名
             JavaFile.builder(Consts.ROUTER_INTERCEPTOR_PACK_NAME, classBuilder.build())
-                    .addFileComment("javax is niubility!!")
+                    .addFileComment("javax is niubility!!\nhttps://github.com/TF27674569/RouterProject ")
                     .build().writeTo(mFiler);
         } catch (IOException e) {
             e.printStackTrace();
